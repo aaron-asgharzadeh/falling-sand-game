@@ -1,7 +1,9 @@
-import sys, pygame
+import sys, pygame, render
 from grid import grid, GRID_WIDTH, GRID_HEIGHT, CELL_SIZE
 from input import handle_input
 from render import draw, update, commit
+
+render.nextGrid
 
 pygame.init()
 
@@ -18,10 +20,11 @@ while True:
             sys.exit()
 
     handle_input()
-    screen.fill((0, 0, 0))  # clear frame
-    draw(screen)
     update()
     commit()
+    screen.fill((0, 0, 0))  # clear frame
+    draw(screen)
+    
 
     pygame.display.flip()
     clock.tick(60)

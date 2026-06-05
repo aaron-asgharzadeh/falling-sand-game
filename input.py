@@ -12,3 +12,4 @@ def handle_input():
 
         if 0 <= x < GRID_WIDTH and 0 <= y < GRID_HEIGHT:
             grid[y][x] = 1
+
