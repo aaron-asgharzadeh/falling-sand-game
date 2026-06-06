@@ -24,7 +24,6 @@ while True:
     commit()
     screen.fill((0, 0, 0))  # clear frame
     draw(screen)
-    
 
     pygame.display.flip()
     clock.tick(60)
