@@ -1,38 +1,29 @@
-import sys, pygame
+import sys, pygame, render
+from grid import grid, GRID_WIDTH, GRID_HEIGHT, CELL_SIZE
+from input import handle_input
+from render import draw, update, commit
+
+render.nextGrid
 
 pygame.init()
 
-size = width, height = 1377, 768
-speed = [1, 1]
-black = 0, 0, 0
-player_x = 0
-player_y = 0
-cam_x = 0
-cam_y = 0
+SCREEN_WIDTH = GRID_WIDTH * CELL_SIZE
+SCREEN_HEIGHT = GRID_HEIGHT * CELL_SIZE
 
-screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 
-player = pygame.image.load("intro_ball.gif").convert()
-
-background = pygame.image.load("background.jpeg").convert()
-screen.blit(background, (-cam_x, -cam_y))
-print(background.get_size())
-
-screen.blit(player, (player_x, player_y))
-
-
-pygame.display.update()
 
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
 
-    # cam_x += 1
-    # player_x += 2
-    # screen.blit(background, (-cam_x, -cam_y))
+    handle_input()
+    update()
+    commit()
+    screen.fill((0, 0, 0))  # clear frame
+    draw(screen)
 
-    # screen.blit(player, (player_x - cam_x, player_y - cam_y))
-    pygame.display.update()
+    pygame.display.flip()
     clock.tick(60)
