@@ -4,6 +4,14 @@ A small sandbox simulation built with Python and Pygame, inspired by falling san
 
 The project simulates simple particle behavior on a 2D grid, where sand particles fall and interact with their environment based on basic rules.
 
+## Setup
+
+This project uses Poetry.
+
+```bash
+poetry install
+poetry run python main.py
+```
 
 ## Notes
 
